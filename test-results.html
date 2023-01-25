@@ -1,0 +1,1113 @@
+<html><head><meta charset="utf-8"/><title>Test Solution</title><style type="text/css">html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+body {
+  padding: 2rem 1rem;
+  font-size: 0.85rem;
+}
+#jesthtml-content {
+  margin: 0 auto;
+  max-width: 70rem;
+}
+header {
+  display: flex;
+  align-items: center;
+}
+#title {
+  margin: 0;
+  flex-grow: 1;
+}
+#logo {
+  height: 4rem;
+}
+#timestamp {
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+/** SUMMARY */
+#summary {
+  color: #333;
+  margin: 2rem 0;
+  display: flex;
+  font-family: monospace;
+  font-size: 1rem;
+}
+#summary > div {
+  margin-right: 2rem;
+  background: #eee;
+  padding: 1rem;
+  min-width: 15rem;
+}
+#summary > div:last-child {
+  margin-right: 0;
+}
+@media only screen and (max-width: 720px) {
+  #summary {
+    flex-direction: column;
+  }
+  #summary > div {
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  #summary > div:first-child {
+    margin-top: 0;
+  }
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.summary-passed {
+  color: #4f8a10;
+  border-left: 0.4rem solid #4f8a10;
+  padding-left: 0.5rem;
+}
+.summary-failed,
+.summary-obsolete-snapshots {
+  color: #d8000c;
+  border-left: 0.4rem solid #d8000c;
+  padding-left: 0.5rem;
+}
+.summary-pending {
+  color: #9f6000;
+  border-left: 0.4rem solid #9f6000;
+  padding-left: 0.5rem;
+}
+.summary-empty {
+  color: #999;
+  border-left: 0.4rem solid #999;
+}
+
+.test-result {
+  padding: 1rem;
+  margin-bottom: 0.25rem;
+}
+.test-result:last-child {
+  border: 0;
+}
+.test-result.passed {
+  background-color: #dff2bf;
+  color: #4f8a10;
+}
+.test-result.failed {
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.test-result.pending {
+  background-color: #ffdf61;
+  color: #9f6000;
+}
+
+.test-info {
+  display: flex;
+  justify-content: space-between;
+}
+.test-suitename {
+  width: 20%;
+  text-align: left;
+  font-weight: bold;
+  word-break: break-word;
+}
+.test-title {
+  width: 40%;
+  text-align: left;
+  font-style: italic;
+}
+.test-status {
+  width: 20%;
+  text-align: right;
+}
+.test-duration {
+  width: 10%;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.failureMessages {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed #d8000c;
+}
+.failureMessages.suiteFailure {
+  border-top: none;
+}
+.failureMsg {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.suite-container {
+  margin-bottom: 2rem;
+}
+.suite-info {
+  padding: 1rem;
+  background-color: #eee;
+  color: #777;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.suite-info .suite-path {
+  word-break: break-all;
+  flex-grow: 1;
+  font-family: monospace;
+  font-size: 1rem;
+}
+.suite-info .suite-time {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+  background-color: #d8000c;
+  color: #fff;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #efefef;
+}
+.suite-consolelog-header {
+  font-weight: bold;
+}
+.suite-consolelog-item {
+  padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-consolelog-item-origin {
+  color: #777;
+  font-weight: bold;
+}
+.suite-consolelog-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* OBSOLETE SNAPSHOTS */
+.suite-obsolete-snapshots {
+  margin-bottom: 0.25rem;
+  padding: 1rem;
+  background-color: #ffbaba;
+  color: #d8000c;
+}
+.suite-obsolete-snapshots-header {
+  font-weight: bold;
+}
+.suite-obsolete-snapshots-item {
+  padding: 0.5rem;
+}
+.suite-obsolete-snapshots-item pre {
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.suite-obsolete-snapshots-item-message {
+  color: #000;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+</style></head><body><div id="jesthtml-content"><header><h1 id="title">Test Solution</h1></header><div id="metadata-container"><div id="timestamp">Started: 2023-01-25 16:45:31</div><div id="summary"><div id="suite-summary"><div class="summary-total">Suites (1)</div><div class="summary-passed summary-empty">0 passed</div><div class="summary-failed">1 failed</div><div class="summary-pending summary-empty">0 pending</div></div><div id="test-summary"><div class="summary-total">Tests (43)</div><div class="summary-passed">36 passed</div><div class="summary-failed">7 failed</div><div class="summary-pending summary-empty">0 pending</div></div></div></div><div id="suite-1" class="suite-container"><div class="suite-info"><div class="suite-path">C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js</div><div class="suite-time">1.578s</div></div><div class="suite-tests"><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getAllDirectors"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0.004s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getAllDirectors"</div><div class="test-title">should return an array</div><div class="test-status">passed</div><div class="test-duration">0.022s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getAllDirectors"</div><div class="test-title">should return a new array, not update the original one</div><div class="test-status">passed</div><div class="test-duration">0.006s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getAllDirectors"</div><div class="test-title">should return a new array with the same length as the original one</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getMoviesFromDirector"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getMoviesFromDirector"</div><div class="test-title">should return an array</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getMoviesFromDirector"</div><div class="test-title">should return a new array, not update the original one</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "getMoviesFromDirector"</div><div class="test-title">should return a new array with the movies from director</div><div class="test-status">passed</div><div class="test-duration">0.005s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageOfDirector"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageOfDirector"</div><div class="test-title">should return a number</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageOfDirector"</div><div class="test-title">should be different from NaN</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageOfDirector"</div><div class="test-title"> should return the average score of movies selecting only the director films. With 2 decimals! </div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should return an array</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should not mutate the original array</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should only return the title of the movies, each value should be a string</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should return all of items when the array passed has fewer than 20 items</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should order them alphabetically.</div><div class="test-status">passed</div><div class="test-duration">0.011s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderAlphabetically"</div><div class="test-title">should return the top 20 after ordering them alphabetically.</div><div class="test-status">passed</div><div class="test-duration">0.002s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderByYear"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderByYear"</div><div class="test-title">should return an array</div><div class="test-status">passed</div><div class="test-duration">0.032s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderByYear"</div><div class="test-title">should return a new array</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderByYear"</div><div class="test-title">should return the element in a single element array</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderByYear"</div><div class="test-title">should return the new array in ascending order</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "orderByYear"</div><div class="test-title">should order movies with the same year by their title, alphabetically</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title">should return a number</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title">should be different from NaN</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title"> should return the average score of 2 movies with score 7 each, without decimals!</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title">should be rounded to 2 decimals places</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title">should not take into consideration films of other category</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "moviesAverageByCategory"</div><div class="test-title">should return average even if one of the movies does not have score</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should return an array</div><div class="test-status">failed</div><div class="test-duration">0.005s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+Expected: [32mtrue[39m
+Received: [31mfalse[39m
+    at Object.toBe (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:377:53)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should return a new array, not update the original one</div><div class="test-status">passed</div><div class="test-duration">0.001s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should return an array of movies with duration as a number</div><div class="test-status">failed</div><div class="test-duration">0s</div></div><div class="failureMessages"> <pre class="failureMsg">TypeError: Cannot read properties of undefined (reading '0')
+    at Object.&lt;anonymous&gt; (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:385:41)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should return an array of movies with the correct duration for a 31 minute movie</div><div class="test-status">failed</div><div class="test-duration">0s</div></div><div class="failureMessages"> <pre class="failureMsg">TypeError: Cannot read properties of undefined (reading '0')
+    at Object.&lt;anonymous&gt; (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:390:36)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should return an array of movies with the correct duration for a 341 minute movie</div><div class="test-status">failed</div><div class="test-duration">0s</div></div><div class="failureMessages"> <pre class="failureMsg">TypeError: Cannot read properties of undefined (reading '0')
+    at Object.&lt;anonymous&gt; (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:395:36)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "hoursToMinutes"</div><div class="test-title">should return an array of movies with the correct duration for a 2 hour movie</div><div class="test-status">failed</div><div class="test-duration">0.001s</div></div><div class="failureMessages"> <pre class="failureMsg">TypeError: Cannot read properties of undefined (reading '0')
+    at Object.&lt;anonymous&gt; (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:400:36)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "bestFilmOfYear"</div><div class="test-title">should be declared</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "bestFilmOfYear"</div><div class="test-title">should return an array</div><div class="test-status">failed</div><div class="test-duration">0s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+Expected: [32mtrue[39m
+Received: [31mfalse[39m
+    at Object.toBe (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:411:59)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div><div class="test-result passed"><div class="test-info"><div class="test-suitename">Function "bestFilmOfYear"</div><div class="test-title">should return a new array, not update the original one</div><div class="test-status">passed</div><div class="test-duration">0s</div></div></div><div class="test-result failed"><div class="test-info"><div class="test-suitename">Function "bestFilmOfYear"</div><div class="test-title">should return the best film of a year, searching in an array</div><div class="test-status">failed</div><div class="test-duration">0.002s</div></div><div class="failureMessages"> <pre class="failureMsg">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+Expected: [32m[{"director": "Stanley Kubrick", "duration": "1h 28min", "genre": ["Drama", "War"], "score": 8.4, "title": "Film2", "year": 1957}][39m
+Received: [31mundefined[39m
+    at Object.toEqual (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:445:43)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre></div></div></div><div class="suite-consolelog"><div class="suite-consolelog-header">Console Log</div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:6:11)
+    at Object.getAllDirectors (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:20:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────────────────────────────────┐
+│ (index) │               Values               │
+├─────────┼────────────────────────────────────┤
+│    0    │          'Frank Darabont'          │
+│    1    │       'Francis Ford Coppola'       │
+│    2    │       'Francis Ford Coppola'       │
+│    3    │        'Christopher Nolan'         │
+│    4    │           'Sidney Lumet'           │
+│    5    │         'Steven Spielberg'         │
+│    6    │        'Quentin Tarantino'         │
+│    7    │          'Peter Jackson'           │
+│    8    │           'Sergio Leone'           │
+│    9    │          'David Fincher'           │
+│   10    │          'Peter Jackson'           │
+│   11    │         'Robert Zemeckis'          │
+│   12    │          'Irvin Kershner'          │
+│   13    │        'Christopher Nolan'         │
+│   14    │          'Peter Jackson'           │
+│   15    │           'Milos Forman'           │
+│   16    │         'Martin Scorsese'          │
+│   17    │          'Lana Wachowski'          │
+│   18    │          'Akira Kurosawa'          │
+│   19    │           'George Lucas'           │
+│   20    │        'Fernando Meirelles'        │
+│   21    │          'David Fincher'           │
+│   22    │          'Jonathan Demme'          │
+│   23    │           'Frank Capra'            │
+│   24    │         'Roberto Benigni'          │
+│   25    │           'Bryan Singer'           │
+│   26    │            'Luc Besson'            │
+│   27    │         'Steven Spielberg'         │
+│   28    │          'Hayao Miyazaki'          │
+│   29    │            'Tony Kaye'             │
+│   30    │           'Sergio Leone'           │
+│   31    │        'Christopher Nolan'         │
+│   32    │         'Alfred Hitchcock'         │
+│   33    │          'Frank Darabont'          │
+│   34    │          'Michael Curtiz'          │
+│   35    │         'Charles Chaplin'          │
+│   36    │         'Olivier Nakache'          │
+│   37    │         'Charles Chaplin'          │
+│   38    │         'Steven Spielberg'         │
+│   39    │          'Roman Polanski'          │
+│   40    │         'Martin Scorsese'          │
+│   41    │         'Alfred Hitchcock'         │
+│   42    │          'James Cameron'           │
+│   43    │         'Robert Zemeckis'          │
+│   44    │         'Damien Chazelle'          │
+│   45    │           'Ridley Scott'           │
+│   46    │        'Christopher Nolan'         │
+│   47    │           'Roger Allers'           │
+│   48    │        'Christopher Nolan'         │
+│   49    │       'Francis Ford Coppola'       │
+│   50    │           'Ridley Scott'           │
+│   51    │         'Charles Chaplin'          │
+│   52    │           'Billy Wilder'           │
+│   53    │         'Stanley Kubrick'          │
+│   54    │        'Giuseppe Tornatore'        │
+│   55    │ 'Florian Henckel von Donnersmarck' │
+│   56    │          'Isao Takahata'           │
+│   57    │         'Denis Villeneuve'         │
+│   58    │         'Stanley Kubrick'          │
+│   59    │        'Quentin Tarantino'         │
+│   60    │         'Stanley Kubrick'          │
+│   61    │          'Andrew Stanton'          │
+│   62    │            'Sam Mendes'            │
+│   63    │        'Christopher Nolan'         │
+│   64    │          'Hayao Miyazaki'          │
+│   65    │          'Chan-wook Park'          │
+│   66    │          'James Cameron'           │
+│   67    │           'Billy Wilder'           │
+│   68    │           'Sergio Leone'           │
+│   69    │        'Wolfgang Petersen'         │
+│   70    │           'Orson Welles'           │
+│   71    │          'Nitesh Tiwari'           │
+│   72    │         'Alfred Hitchcock'         │
+│   73    │         'Alfred Hitchcock'         │
+│   74    │         'Richard Marquand'         │
+│   75    │            'Mel Gibson'            │
+│   76    │        'Quentin Tarantino'         │
+│   77    │            'Fritz Lang'            │
+│   78    │         'Darren Aronofsky'         │
+│   79    │        'Jean-Pierre Jeunet'        │
+│   80    │            'Aamir Khan'            │
+│   81    │         'Stanley Kubrick'          │
+│   82    │          'Makoto Shinkai'          │
+│   83    │            'David Lean'            │
+│   84    │           'Billy Wilder'           │
+│   85    │           'Milos Forman'           │
+│   86    │          'Michel Gondry'           │
+│   87    │         'Martin Scorsese'          │
+│   88    │         'Robert Mulligan'          │
+│   89    │        'Christopher Nolan'         │
+│   90    │         'Stanley Kubrick'          │
+│   91    │         'Stanley Kubrick'          │
+│   92    │          'Stanley Donen'           │
+│   93    │           'Lee Unkrich'            │
+│   94    │          'John Lasseter'           │
+│   95    │         'George Roy Hill'          │
+│   96    │         'Rajkumar Hirani'          │
+│   97    │         'Vittorio De Sica'         │
+│   98    │        'Quentin Tarantino'         │
+│   99    │         'Charles Chaplin'          │
+│   100   │           'Guy Ritchie'            │
+│   101   │          'Terry Gilliam'           │
+│   102   │           'Gus Van Sant'           │
+│   103   │        'Thomas Vinterberg'         │
+│   104   │           'Sergio Leone'           │
+│   105   │          'Curtis Hanson'           │
+│   106   │          'Brian De Palma'          │
+│   107   │           'Billy Wilder'           │
+│   108   │            'Fritz Lang'            │
+│   109   │          'Asghar Farhadi'          │
+│   110   │          'Akira Kurosawa'          │
+│   111   │         'Steven Spielberg'         │
+│   112   │       'Joseph L. Mankiewicz'       │
+│   113   │          'Akira Kurosawa'          │
+│   114   │           'Çagan Irmak'            │
+│   115   │           'Pete Docter'            │
+│   116   │        'Christopher Nolan'         │
+│   117   │           'Billy Wilder'           │
+│   118   │           'John Huston'            │
+│   119   │          'Clint Eastwood'          │
+│   120   │       'Oliver Hirschbiegel'        │
+│   121   │          'John McTiernan'          │
+│   122   │         'Martin Scorsese'          │
+│   123   │           'Michael Mann'           │
+│   124   │            'Carol Reed'            │
+│   125   │           'Majid Majidi'           │
+│   126   │           'John Sturges'           │
+│   127   │          'Akira Kurosawa'          │
+│   128   │          'Roman Polanski'          │
+│   129   │        'Guillermo del Toro'        │
+│   130   │          'Hayao Miyazaki'          │
+│   131   │         'Denis Villeneuve'         │
+│   132   │          'Akira Kurosawa'          │
+│   133   │         'Charles Chaplin'          │
+│   134   │       'Juan José Campanella'       │
+│   135   │           'Pete Docter'            │
+│   136   │          'Stanley Kramer'          │
+│   137   │            'Elia Kazan'            │
+│   138   │          'Hayao Miyazaki'          │
+│   139   │            'David Lean'            │
+│   140   │         'Lenny Abrahamson'         │
+│   141   │          'Ingmar Bergman'          │
+│   142   │           'Guy Ritchie'            │
+│   143   │           'Frank Capra'            │
+│   144   │           'Ridley Scott'           │
+│   145   │         'Martin Scorsese'          │
+│   146   │            'Ron Howard'            │
+│   147   │           'David Lynch'            │
+│   148   │          'Ingmar Bergman'          │
+│   149   │          'James McTeigue'          │
+│   150   │         'Martin Scorsese'          │
+│   151   │          'Clyde Bruckman'          │
+│   152   │          'Gavin O"Connor'          │
+│   153   │           'Danny Boyle'            │
+│   154   │         'Alfred Hitchcock'         │
+│   155   │          'Clint Eastwood'          │
+│   156   │           'F.W. Murnau'            │
+│   157   │          'Victor Fleming'          │
+│   158   │         'Andrei Tarkovsky'         │
+│   159   │          'Michael Cimino'          │
+│   160   │            'Joel Coen'             │
+│   161   │        'M. Night Shyamalan'        │
+│   162   │          'John Carpenter'          │
+│   163   │            'Ethan Coen'            │
+│   164   │            'Joel Coen'             │
+│   165   │           'Yavuz Turgul'           │
+│   166   │          'Andrew Stanton'          │
+│   167   │           'Yasujirô Ozu'           │
+│   168   │       'Paul Thomas Anderson'       │
+│   169   │         'Stuart Rosenberg'         │
+│   170   │         'Alfred Hitchcock'         │
+│   171   │            'Mel Gibson'            │
+│   172   │         'Damien Chazelle'          │
+│   173   │           'Elem Klimov'            │
+│   174   │        'Quentin Tarantino'         │
+│   175   │     'Rakeysh Omprakash Mehra'      │
+│   176   │           'Dean DeBlois'           │
+│   177   │       'Carl Theodor Dreyer'        │
+│   178   │           'Adam Elliot'            │
+│   179   │          'David Fincher'           │
+│   180   │            'Sean Penn'             │
+│   181   │         'Martin Scorsese'          │
+│   182   │          'James Mangold'           │
+│   183   │           'Frank Capra'            │
+│   184   │           'Terry Jones'            │
+│   185   │          'Damián Szifron'          │
+│   186   │          'Neeraj Pandey'           │
+│   187   │           'Oliver Stone'           │
+│   188   │           'Terry George'           │
+│   189   │      'Henri-Georges Clouzot'       │
+│   190   │           'Sidney Lumet'           │
+│   191   │            'Ron Howard'            │
+│   192   │           'Jim Sheridan'           │
+│   193   │            'Rob Reiner'            │
+│   194   │          'Ingmar Bergman'          │
+│   195   │          'William Wyler'           │
+│   196   │           'Wes Anderson'           │
+│   197   │        'François Truffaut'         │
+│   198   │           'Joon-ho Bong'           │
+│   199   │          'Steve McQueen'           │
+│   200   │          'George Miller'           │
+│   201   │         'Steven Spielberg'         │
+│   202   │           'Tom McCarthy'           │
+│   203   │          'Clint Eastwood'          │
+│   204   │         'Andrei Tarkovsky'         │
+│   205   │         'George Roy Hill'          │
+│   206   │   'Alejandro González Iñárritu'    │
+│   207   │            'Peter Weir'            │
+│   208   │         'Lasse Hallström'          │
+│   209   │           'John Huston'            │
+│   210   │          'Hayao Miyazaki'          │
+│   211   │            'Rob Reiner'            │
+│   212   │        'Richard Linklater'         │
+│   213   │         'Federico Fellini'         │
+│   214   │        'Peter Bogdanovich'         │
+│   215   │         'Denis Villeneuve'         │
+│   216   │           'David Yates'            │
+│   217   │            'John Ford'             │
+│   218   │         'John G. Avildsen'         │
+│   219   │         'Steven Spielberg'         │
+│   220   │           'Orson Welles'           │
+│   221   │      'Henri-Georges Clouzot'       │
+│   222   │       'Richard Attenborough'       │
+│   223   │          'Richard Kelly'           │
+│   224   │         'Rajkumar Hirani'          │
+│   225   │           'Pete Docter'            │
+│   226   │           'J.J. Abrams'            │
+│   227   │           'Woody Allen'            │
+│   228   │          'James Cameron'           │
+│   229   │         'Stanley Kubrick'          │
+│   230   │         'Paul Greengrass'          │
+│   231   │          'Victor Fleming'          │
+│   232   │           'Harold Ramis'           │
+│   233   │        'Mathieu Kassovitz'         │
+│   234   │         'Federico Fellini'         │
+│   235   │         'Steven Spielberg'         │
+│   236   │          'Terry Gilliam'           │
+│   237   │          'William Wyler'           │
+│   238   │          'Wai-Keung Lau'           │
+│   239   │           'Wim Wenders'            │
+│   240   │           'Tate Taylor'            │
+│   241   │           'Kar-Wai Wong'           │
+│   242   │           'Ramesh Sippy'           │
+│   243   │          'Gary Trousdale'          │
+│   244   │         'Gillo Pontecorvo'         │
+│   245   │          'Chan-wook Park'          │
+│   246   │          'Gore Verbinski'          │
+│   247   │         'Rajkumar Hirani'          │
+│   248   │           'Sidney Lumet'           │
+│   249   │            'Peter Weir'            │
+└─────────┴────────────────────────────────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:6:11)
+    at Object.getAllDirectors (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:24:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────────────────────────────────┐
+│ (index) │               Values               │
+├─────────┼────────────────────────────────────┤
+│    0    │          'Frank Darabont'          │
+│    1    │       'Francis Ford Coppola'       │
+│    2    │       'Francis Ford Coppola'       │
+│    3    │        'Christopher Nolan'         │
+│    4    │           'Sidney Lumet'           │
+│    5    │         'Steven Spielberg'         │
+│    6    │        'Quentin Tarantino'         │
+│    7    │          'Peter Jackson'           │
+│    8    │           'Sergio Leone'           │
+│    9    │          'David Fincher'           │
+│   10    │          'Peter Jackson'           │
+│   11    │         'Robert Zemeckis'          │
+│   12    │          'Irvin Kershner'          │
+│   13    │        'Christopher Nolan'         │
+│   14    │          'Peter Jackson'           │
+│   15    │           'Milos Forman'           │
+│   16    │         'Martin Scorsese'          │
+│   17    │          'Lana Wachowski'          │
+│   18    │          'Akira Kurosawa'          │
+│   19    │           'George Lucas'           │
+│   20    │        'Fernando Meirelles'        │
+│   21    │          'David Fincher'           │
+│   22    │          'Jonathan Demme'          │
+│   23    │           'Frank Capra'            │
+│   24    │         'Roberto Benigni'          │
+│   25    │           'Bryan Singer'           │
+│   26    │            'Luc Besson'            │
+│   27    │         'Steven Spielberg'         │
+│   28    │          'Hayao Miyazaki'          │
+│   29    │            'Tony Kaye'             │
+│   30    │           'Sergio Leone'           │
+│   31    │        'Christopher Nolan'         │
+│   32    │         'Alfred Hitchcock'         │
+│   33    │          'Frank Darabont'          │
+│   34    │          'Michael Curtiz'          │
+│   35    │         'Charles Chaplin'          │
+│   36    │         'Olivier Nakache'          │
+│   37    │         'Charles Chaplin'          │
+│   38    │         'Steven Spielberg'         │
+│   39    │          'Roman Polanski'          │
+│   40    │         'Martin Scorsese'          │
+│   41    │         'Alfred Hitchcock'         │
+│   42    │          'James Cameron'           │
+│   43    │         'Robert Zemeckis'          │
+│   44    │         'Damien Chazelle'          │
+│   45    │           'Ridley Scott'           │
+│   46    │        'Christopher Nolan'         │
+│   47    │           'Roger Allers'           │
+│   48    │        'Christopher Nolan'         │
+│   49    │       'Francis Ford Coppola'       │
+│   50    │           'Ridley Scott'           │
+│   51    │         'Charles Chaplin'          │
+│   52    │           'Billy Wilder'           │
+│   53    │         'Stanley Kubrick'          │
+│   54    │        'Giuseppe Tornatore'        │
+│   55    │ 'Florian Henckel von Donnersmarck' │
+│   56    │          'Isao Takahata'           │
+│   57    │         'Denis Villeneuve'         │
+│   58    │         'Stanley Kubrick'          │
+│   59    │        'Quentin Tarantino'         │
+│   60    │         'Stanley Kubrick'          │
+│   61    │          'Andrew Stanton'          │
+│   62    │            'Sam Mendes'            │
+│   63    │        'Christopher Nolan'         │
+│   64    │          'Hayao Miyazaki'          │
+│   65    │          'Chan-wook Park'          │
+│   66    │          'James Cameron'           │
+│   67    │           'Billy Wilder'           │
+│   68    │           'Sergio Leone'           │
+│   69    │        'Wolfgang Petersen'         │
+│   70    │           'Orson Welles'           │
+│   71    │          'Nitesh Tiwari'           │
+│   72    │         'Alfred Hitchcock'         │
+│   73    │         'Alfred Hitchcock'         │
+│   74    │         'Richard Marquand'         │
+│   75    │            'Mel Gibson'            │
+│   76    │        'Quentin Tarantino'         │
+│   77    │            'Fritz Lang'            │
+│   78    │         'Darren Aronofsky'         │
+│   79    │        'Jean-Pierre Jeunet'        │
+│   80    │            'Aamir Khan'            │
+│   81    │         'Stanley Kubrick'          │
+│   82    │          'Makoto Shinkai'          │
+│   83    │            'David Lean'            │
+│   84    │           'Billy Wilder'           │
+│   85    │           'Milos Forman'           │
+│   86    │          'Michel Gondry'           │
+│   87    │         'Martin Scorsese'          │
+│   88    │         'Robert Mulligan'          │
+│   89    │        'Christopher Nolan'         │
+│   90    │         'Stanley Kubrick'          │
+│   91    │         'Stanley Kubrick'          │
+│   92    │          'Stanley Donen'           │
+│   93    │           'Lee Unkrich'            │
+│   94    │          'John Lasseter'           │
+│   95    │         'George Roy Hill'          │
+│   96    │         'Rajkumar Hirani'          │
+│   97    │         'Vittorio De Sica'         │
+│   98    │        'Quentin Tarantino'         │
+│   99    │         'Charles Chaplin'          │
+│   100   │           'Guy Ritchie'            │
+│   101   │          'Terry Gilliam'           │
+│   102   │           'Gus Van Sant'           │
+│   103   │        'Thomas Vinterberg'         │
+│   104   │           'Sergio Leone'           │
+│   105   │          'Curtis Hanson'           │
+│   106   │          'Brian De Palma'          │
+│   107   │           'Billy Wilder'           │
+│   108   │            'Fritz Lang'            │
+│   109   │          'Asghar Farhadi'          │
+│   110   │          'Akira Kurosawa'          │
+│   111   │         'Steven Spielberg'         │
+│   112   │       'Joseph L. Mankiewicz'       │
+│   113   │          'Akira Kurosawa'          │
+│   114   │           'Çagan Irmak'            │
+│   115   │           'Pete Docter'            │
+│   116   │        'Christopher Nolan'         │
+│   117   │           'Billy Wilder'           │
+│   118   │           'John Huston'            │
+│   119   │          'Clint Eastwood'          │
+│   120   │       'Oliver Hirschbiegel'        │
+│   121   │          'John McTiernan'          │
+│   122   │         'Martin Scorsese'          │
+│   123   │           'Michael Mann'           │
+│   124   │            'Carol Reed'            │
+│   125   │           'Majid Majidi'           │
+│   126   │           'John Sturges'           │
+│   127   │          'Akira Kurosawa'          │
+│   128   │          'Roman Polanski'          │
+│   129   │        'Guillermo del Toro'        │
+│   130   │          'Hayao Miyazaki'          │
+│   131   │         'Denis Villeneuve'         │
+│   132   │          'Akira Kurosawa'          │
+│   133   │         'Charles Chaplin'          │
+│   134   │       'Juan José Campanella'       │
+│   135   │           'Pete Docter'            │
+│   136   │          'Stanley Kramer'          │
+│   137   │            'Elia Kazan'            │
+│   138   │          'Hayao Miyazaki'          │
+│   139   │            'David Lean'            │
+│   140   │         'Lenny Abrahamson'         │
+│   141   │          'Ingmar Bergman'          │
+│   142   │           'Guy Ritchie'            │
+│   143   │           'Frank Capra'            │
+│   144   │           'Ridley Scott'           │
+│   145   │         'Martin Scorsese'          │
+│   146   │            'Ron Howard'            │
+│   147   │           'David Lynch'            │
+│   148   │          'Ingmar Bergman'          │
+│   149   │          'James McTeigue'          │
+│   150   │         'Martin Scorsese'          │
+│   151   │          'Clyde Bruckman'          │
+│   152   │          'Gavin O"Connor'          │
+│   153   │           'Danny Boyle'            │
+│   154   │         'Alfred Hitchcock'         │
+│   155   │          'Clint Eastwood'          │
+│   156   │           'F.W. Murnau'            │
+│   157   │          'Victor Fleming'          │
+│   158   │         'Andrei Tarkovsky'         │
+│   159   │          'Michael Cimino'          │
+│   160   │            'Joel Coen'             │
+│   161   │        'M. Night Shyamalan'        │
+│   162   │          'John Carpenter'          │
+│   163   │            'Ethan Coen'            │
+│   164   │            'Joel Coen'             │
+│   165   │           'Yavuz Turgul'           │
+│   166   │          'Andrew Stanton'          │
+│   167   │           'Yasujirô Ozu'           │
+│   168   │       'Paul Thomas Anderson'       │
+│   169   │         'Stuart Rosenberg'         │
+│   170   │         'Alfred Hitchcock'         │
+│   171   │            'Mel Gibson'            │
+│   172   │         'Damien Chazelle'          │
+│   173   │           'Elem Klimov'            │
+│   174   │        'Quentin Tarantino'         │
+│   175   │     'Rakeysh Omprakash Mehra'      │
+│   176   │           'Dean DeBlois'           │
+│   177   │       'Carl Theodor Dreyer'        │
+│   178   │           'Adam Elliot'            │
+│   179   │          'David Fincher'           │
+│   180   │            'Sean Penn'             │
+│   181   │         'Martin Scorsese'          │
+│   182   │          'James Mangold'           │
+│   183   │           'Frank Capra'            │
+│   184   │           'Terry Jones'            │
+│   185   │          'Damián Szifron'          │
+│   186   │          'Neeraj Pandey'           │
+│   187   │           'Oliver Stone'           │
+│   188   │           'Terry George'           │
+│   189   │      'Henri-Georges Clouzot'       │
+│   190   │           'Sidney Lumet'           │
+│   191   │            'Ron Howard'            │
+│   192   │           'Jim Sheridan'           │
+│   193   │            'Rob Reiner'            │
+│   194   │          'Ingmar Bergman'          │
+│   195   │          'William Wyler'           │
+│   196   │           'Wes Anderson'           │
+│   197   │        'François Truffaut'         │
+│   198   │           'Joon-ho Bong'           │
+│   199   │          'Steve McQueen'           │
+│   200   │          'George Miller'           │
+│   201   │         'Steven Spielberg'         │
+│   202   │           'Tom McCarthy'           │
+│   203   │          'Clint Eastwood'          │
+│   204   │         'Andrei Tarkovsky'         │
+│   205   │         'George Roy Hill'          │
+│   206   │   'Alejandro González Iñárritu'    │
+│   207   │            'Peter Weir'            │
+│   208   │         'Lasse Hallström'          │
+│   209   │           'John Huston'            │
+│   210   │          'Hayao Miyazaki'          │
+│   211   │            'Rob Reiner'            │
+│   212   │        'Richard Linklater'         │
+│   213   │         'Federico Fellini'         │
+│   214   │        'Peter Bogdanovich'         │
+│   215   │         'Denis Villeneuve'         │
+│   216   │           'David Yates'            │
+│   217   │            'John Ford'             │
+│   218   │         'John G. Avildsen'         │
+│   219   │         'Steven Spielberg'         │
+│   220   │           'Orson Welles'           │
+│   221   │      'Henri-Georges Clouzot'       │
+│   222   │       'Richard Attenborough'       │
+│   223   │          'Richard Kelly'           │
+│   224   │         'Rajkumar Hirani'          │
+│   225   │           'Pete Docter'            │
+│   226   │           'J.J. Abrams'            │
+│   227   │           'Woody Allen'            │
+│   228   │          'James Cameron'           │
+│   229   │         'Stanley Kubrick'          │
+│   230   │         'Paul Greengrass'          │
+│   231   │          'Victor Fleming'          │
+│   232   │           'Harold Ramis'           │
+│   233   │        'Mathieu Kassovitz'         │
+│   234   │         'Federico Fellini'         │
+│   235   │         'Steven Spielberg'         │
+│   236   │          'Terry Gilliam'           │
+│   237   │          'William Wyler'           │
+│   238   │          'Wai-Keung Lau'           │
+│   239   │           'Wim Wenders'            │
+│   240   │           'Tate Taylor'            │
+│   241   │           'Kar-Wai Wong'           │
+│   242   │           'Ramesh Sippy'           │
+│   243   │          'Gary Trousdale'          │
+│   244   │         'Gillo Pontecorvo'         │
+│   245   │          'Chan-wook Park'          │
+│   246   │          'Gore Verbinski'          │
+│   247   │         'Rajkumar Hirani'          │
+│   248   │           'Sidney Lumet'           │
+│   249   │            'Peter Weir'            │
+└─────────┴────────────────────────────────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:6:11)
+    at Object.getAllDirectors (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:46:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬─────────────────────┐
+│ (index) │       Values        │
+├─────────┼─────────────────────┤
+│    0    │  'Stanley Kubrick'  │
+│    1    │ 'Quentin Tarantino' │
+└─────────┴─────────────────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:17:11)
+    at Object.getMoviesFromDirector (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:60:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">[]</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:17:11)
+    at Object.getMoviesFromDirector (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:64:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">[]</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at log (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:17:11)
+    at Object.getMoviesFromDirector (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:86:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">[
+  {
+    title: 'Django Unchained',
+    year: 2012,
+    director: 'Quentin Tarantino',
+    duration: '2h 45min',
+    genre: [ 'Drama', 'Western' ],
+    score: 8.4
+  }
+]</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:43:13)
+    at Object.orderAlphabetically (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:152:19)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┐
+│ (index) │
+├─────────┤
+└─────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:43:13)
+    at Object.orderAlphabetically (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:157:5)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│    0    │ 'abc'  │
+│    1    │ 'xyz'  │
+└─────────┴────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:43:13)
+    at Object.orderAlphabetically (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:162:19)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│    0    │ 'aab'  │
+└─────────┴────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:43:13)
+    at Object.orderAlphabetically (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:167:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│    0    │ 'aab'  │
+│    1    │ 'acb'  │
+│    2    │ 'bab'  │
+└─────────┴────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:43:13)
+    at Object.orderAlphabetically (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:179:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│    0    │ 'aaa'  │
+│    1    │ 'aab'  │
+│    2    │ 'abb'  │
+│    3    │ 'abc'  │
+│    4    │ 'acb'  │
+└─────────┴────────┘</pre></div><div class="suite-consolelog-item"><pre class="suite-consolelog-item-origin">    at final (node:internal/console/constructor:507:34)
+    at console.table (node:internal/console/constructor:609:12)
+    at table (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\src\films.js:43:13)
+    at Object.orderAlphabetically (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\tests\films.spec.js:228:12)
+    at Promise.then.completed (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:289:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\utils.js:222:10)
+    at _callCircusTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:248:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:184:3)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:86:9)
+    at _runTestsForDescribeBlock (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:81:9)
+    at run (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\run.js:26:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:120:21)
+    at jestAdapter (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:79:19)
+    at runTestInternal (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:367:16)
+    at runTest (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\runTest.js:444:34)
+    at Object.worker (C:\Users\Angel\Desktop\IT Academy Angular\Sprint 4\Sprint-4\node_modules\jest-runner\build\testWorker.js:106:12)</pre><pre class="suite-consolelog-item-message">┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│    0    │ 'aaa'  │
+│    1    │ 'aab'  │
+│    2    │ 'acb'  │
+│    3    │ 'acs'  │
+│    4    │ 'afb'  │
+│    5    │ 'agb'  │
+│    6    │ 'anc'  │
+│    7    │ 'apo'  │
+│    8    │ 'bab'  │
+│    9    │ 'bbb'  │
+│   10    │ 'bbt'  │
+│   11    │ 'bca'  │
+│   12    │ 'bvc'  │
+│   13    │ 'ccc'  │
+│   14    │ 'cdf'  │
+│   15    │ 'era'  │
+│   16    │ 'ert'  │
+│   17    │ 'frt'  │
+│   18    │ 'gda'  │
+│   19    │ 'gha'  │
+└─────────┴────────┘</pre></div></div></div></div></body></html>
